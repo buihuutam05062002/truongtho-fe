@@ -12,7 +12,8 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
     alias:{
-      "@": path.resolve(__dirname,".src")
+      // error 1: thiếu dấu
+      "@": path.resolve(__dirname,"./src")
     }
   }
 })

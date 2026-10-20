@@ -1,16 +1,11 @@
 import './App.css'
-import {Button} from './components/ui/button'
+
+import { RouterProvider } from 'react-router-dom'
+import { router } from './app/router'
 
 function App() {
 
-  return (
-    <>
-      <Button variant='destructive'>Hi</Button>
-
-
-      <button className='bg-pink-400 p-5 rounded-3xl'>Hello </button>
-    </>
-  )
+  return <RouterProvider router={router}></RouterProvider>
 }
 
 export default App

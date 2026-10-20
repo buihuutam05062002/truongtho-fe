@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60">
+   <defs>
+    <radialGradient id="grad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="9%" stop-color="#2a2a2a" />
+      <stop offset="10%" stop-color="#171f27" />
+      <stop offset="19%" stop-color="#171f27" />
+      <stop offset="20%" stop-color="#2a2a2a" />
+      <stop offset="29%" stop-color="#2a2a2a" />
+      <stop offset="30%" stop-color="#171f27" />
+      <stop offset="39%" stop-color="#171f27" />
+      <stop offset="40%" stop-color="#2a2a2a" />
+      <stop offset="49%" stop-color="#2a2a2a" />
+      <stop offset="50%" stop-color="#171f27" />
+      <stop offset="59%" stop-color="#171f27" />
+      <stop offset="60%" stop-color="#2a2a2a" />
+      <stop offset="69%" stop-color="#2a2a2a" />
+      <stop offset="70%" stop-color="#171f27" />
+      <stop offset="79%" stop-color="#171f27" />
+      <stop offset="80%" stop-color="#2a2a2a" />
+      <stop offset="89%" stop-color="#2a2a2a" />
+      <stop offset="90%" stop-color="#171f27" />
+    </radialGradient>
+  </defs>
+  <circle fill="url(#grad)" cy="27" r="57" />
+  <circle fill="url(#grad)" cx="100" cy="27" r="57" />
+  <circle fill="url(#grad)" cx="50" cy="57" r="57" /> 
+  <circle fill="url(#grad)" cy="87" r="57" />
+  <circle fill="url(#grad)" cx="100" cy="87" r="57" />
+</svg>
