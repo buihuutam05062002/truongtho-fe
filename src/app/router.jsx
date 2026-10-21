@@ -3,16 +3,19 @@ import AuthLayout from "../layouts/auth-layout";
 import LoginPage from "../features/auth/pages/login-page";
 import RegisterPage from "../features/auth/pages/register-page";
 import Dashboard from "@/features/auth/pages/dashboard";
+import ErrorPage from "@/features/auth/pages/ErrorPage/ErrorPage";
 
 
 export const router =createBrowserRouter([
     {path: "/", element: <Navigate to="/login" replace></Navigate>},
     {
         element: <AuthLayout></AuthLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {path: "/login", element: <LoginPage></LoginPage>},
             {path:"/register", element: <RegisterPage></RegisterPage>},
         ]
     },
-    {path:"/home", element: <Dashboard></Dashboard>}
+    {path:"/home", element: <Dashboard></Dashboard>,         errorElement: <ErrorPage></ErrorPage>,
+}
 ])
