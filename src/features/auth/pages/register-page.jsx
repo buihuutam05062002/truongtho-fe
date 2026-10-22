@@ -14,6 +14,7 @@ export default function RegisterPage(){
         <FormField  id={"email"} label={"Email"} error={"Email không hợp lệ"} children={<EmailInput type="text" />}  ></FormField>
         <FormField id="password" label="Mật khẩu" error={"Sai email hoặc mật khẩu"} children={<PasswordInput ></PasswordInput>}></FormField>
         <FormField id="password" label="Xác nhận Mật khẩu" error={"Sai email hoặc mật khẩu"} children={<PasswordInput ></PasswordInput>}></FormField>
+        <Button className="p-5 bg-green-700 w-full  ">Đăng ký</Button>
         <Button className="p-5 bg-red-700 w-full  ">GOOGLE</Button>
         <p className="text-sm text-muted-foreground">
             Đã có tài khoản?{" "}

@@ -7,7 +7,7 @@ export function PasswordInput({className,...props}){
     const [show,setShow] = useState(false)
     return (
         <div className="relative">
-            <Lock className="pointer-events-none absolute left-3 top-1/2 size-4 -traslate-y-1/2 text-primary/70"></Lock>
+            <Lock className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-primary/70"></Lock>
             <Input 
                 {...props}
                 type={show ? "text" : "password"}

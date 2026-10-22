@@ -1,5 +1,5 @@
 export default function ErrorFallback({ error, resetErrorBoundary }) {
-  const isChunkError = /dynamically imported module|Loding chunk/i.test(
+  const isChunkError = /dynamically imported module|Loading chunk/i.test(
     error?.message ?? "",
   );
   return (
@@ -8,7 +8,7 @@ export default function ErrorFallback({ error, resetErrorBoundary }) {
       <p>
         {isChunkError
           ? "Vui lòng tải lại trang để cập nhật."
-          : "ĐBạn thử lại hoặc quay về trang chủ"}
+          : "Bạn thử lại hoặc quay về trang chủ"}
       </p>
       <button
         onClick={() =>
