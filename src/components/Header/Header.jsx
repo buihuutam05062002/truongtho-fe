@@ -13,7 +13,7 @@ const MENU =[
 export function Header() {
 
   return (
-    <div className="lg:flex items-center justify-between py-4">
+    <div className="   lg:flex items-center justify-between py-4 ">
       <div className="flex items-center gap-3 px-8">
         <a href="">
           <img src="/logo.webp" alt="" className="size-11 rounded-full" />

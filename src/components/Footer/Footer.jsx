@@ -37,7 +37,7 @@ export function Footer(){
             <div>
                 <hr className="border " />
                 <div className="flex lg:grid-cols-[1.1fr_3fr] gap-5 justify-between  py-5 ">
-                    <select name="" id="">
+                    <select name="" id="" className="aria-label">
                         <option value="">EN-US</option>
                         <option value="">VN</option>
                     </select>

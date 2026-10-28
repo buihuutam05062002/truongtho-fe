@@ -1,7 +1,7 @@
 import { createBrowserRouter,Navigate } from "react-router-dom";
-import AuthLayout from "../layouts/auth-layout";
-import LoginPage from "../features/auth/pages/login-page";
-import RegisterPage from "../features/auth/pages/register-page";
+import AuthLayout from "@/layouts/auth-layout";
+import LoginPage from "@/features/auth/pages/login-page";
+import RegisterPage from "@/features/auth/pages/register-page";
 import Dashboard from "@/features/auth/pages/dashboard";
 import ErrorPage from "@/features/auth/pages/ErrorPage/ErrorPage";
 import { QuestRoute } from "@/features/auth/components/guest-route";
