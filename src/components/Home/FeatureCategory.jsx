@@ -1,5 +1,5 @@
 import { Button } from "../ui/button";
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, Key } from "lucide-react";
 const items = [
   {
     title: "Món chính",
@@ -33,7 +33,7 @@ export function FeatureCategory() {
 
         <div className="flex flex-col ">
           {items.map((item) => (
-            <div className="mb-5 ">
+            <div className="mb-5 " key={item.title}>
               <div className="flex justify-between">
                 <div>
                   <p>{item.title}</p>

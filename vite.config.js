@@ -12,8 +12,12 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
     alias:{
-      // error 1: thiếu dấu
       "@": path.resolve(__dirname,"./src")
+    }
+  },
+  server:{
+    proxy:{
+      '/api':{target: 'http://localhost:8081', changeOrigin: true}
     }
   }
 })

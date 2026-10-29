@@ -37,7 +37,7 @@ export function FeatureMenu() {
             <div className="flex  gap-5 ">
                 
             {items.map((item) => 
-                <DishCard imgUrl={item.imgUrl} title={item.title} content={item.desciption} value={item.value}  />
+                <DishCard key={item.title} imgUrl={item.imgUrl} title={item.title} content={item.desciption} value={item.value}  />
             
             )}
             </div>
