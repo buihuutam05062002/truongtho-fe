@@ -1,5 +1,5 @@
-import { DishCard } from "./Dishcard"
-import { Button } from "../ui/button"
+import { DishCard } from "./dish-card"
+import { Button } from "@/components/ui/button"
 
 const items = [
     {

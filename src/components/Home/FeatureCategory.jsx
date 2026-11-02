@@ -1,5 +1,5 @@
-import { Button } from "../ui/button";
-import { ArrowUp, Key } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ArrowUp } from "lucide-react";
 const items = [
   {
     title: "Món chính",

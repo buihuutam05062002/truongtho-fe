@@ -7,7 +7,7 @@ import App from './App.jsx'
 import { Toaster } from 'react-hot-toast'
 import { ErrorBoundary } from "react-error-boundary";
 import { logError } from './lib/logError'
-import ErrorFallback from './components/ErrorFallback/ErrorFallback'
+import ErrorFallback from './components/feedback/error-fallback'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

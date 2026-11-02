@@ -1,5 +1,5 @@
 import {  Broccoli,Flame ,HeartPlus} from 'lucide-react';
-import { FeatureItem } from './FeatureItem';
+import { FeatureItem } from '@/features/home/components/feature-item';
 {/* <Flame color="#bca27a" /> */}
 {/* <HeartPlus color="#bca27a" /> */}
 const features = [

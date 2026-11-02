@@ -1,5 +1,5 @@
 import { Label } from "../ui/label";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 const MENU =[
   {label: "Trang chủ", href: "#"},
