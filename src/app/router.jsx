@@ -50,7 +50,8 @@ export const router = createBrowserRouter([
                 element: <AdminLayout/>,
                 children:[
                     {index:true, element: <Navigate to="/admin/reservations" replace/>},
-                    {path: "reservations", lazy: page(() => import("@/features/admin/pages/reservations-page"))}
+                    {path: "reservations", lazy: page(() => import("@/features/admin/pages/reservations-page"))},
+                    {path: "tables", lazy: page(() => import("@/features/table/pages/tables-page"))}
                 ]
             
             },

@@ -4,6 +4,9 @@ import { Outlet } from "react-router-dom"
 const NAV = [
     {
         to: "/admin/reservations",label: "Đặt bàn"
+    },
+    {
+        to: "/admin/tables", label: "Bàn"
     }
 ]
 
