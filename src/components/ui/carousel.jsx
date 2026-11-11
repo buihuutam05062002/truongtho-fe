@@ -70,6 +70,7 @@ function Carousel({
 
   React.useEffect(() => {
     if (!api) return
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- sync initial state from Embla
     onSelect(api)
     api.on("reInit", onSelect)
     api.on("select", onSelect)
@@ -212,4 +213,4 @@ function CarouselNext({
   )
 }
 
-export { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext, useCarousel };
+export { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext };
