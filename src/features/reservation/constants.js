@@ -21,3 +21,12 @@ export const NEXT_ACTIONS = {
         { status: "COMPLETED", label: "Hoàn thành" },
     ],
 }
+
+export const STATUS_TONE = {
+    PENDING: "warning",
+    CONFIRM: "info",
+    ARRIVED: "info",
+    COMPLETED: "success",
+    CANCELLED: "danger",
+    NO_SHOW: "neutral",
+}
