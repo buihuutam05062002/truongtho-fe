@@ -6,6 +6,8 @@ import { FeatureMenu } from "@/features/home/components/feature-menu"
 import { FeatureCategory } from "@/features/home/components/feature-category"
 import { PrivateDining } from "@/features/home/components/private-dining"
 import { FeatureFeedBack } from "@/features/home/components/feature-feedback"
+import { ReserveSection } from "../components/reserve-section"
+import { DiningAtmosphere } from "../components/dining-atmosphere"
 export default  function HomePage() {
     return (
         <main>
@@ -14,8 +16,10 @@ export default  function HomePage() {
             <AboutSection></AboutSection>
             <FeatureMenu></FeatureMenu>
             <FeatureCategory></FeatureCategory>
+            <DiningAtmosphere></DiningAtmosphere>
             <PrivateDining></PrivateDining>
             <FeatureFeedBack></FeatureFeedBack>
+            <ReserveSection></ReserveSection>
         </main>
     )
 }
