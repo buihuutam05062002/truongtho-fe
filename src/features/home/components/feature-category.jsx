@@ -1,61 +1,52 @@
 import { Button } from "@/components/ui/button";
 import { ArrowUp } from "lucide-react";
+import { Section, SectionHeader } from "@/components/layout/section";
 const items = [
-  {
-    title: "Món chính",
-    description: "Nhẹ nhàng đánh thức vị giác",
-    value: 60000,
-  },
-  {
-    title: "Món Phụ",
-    description: "Nhẹ nhàng đánh thức vị giác",
-    value: 60000,
-  },
-  {
-    title: "Món tráng miệng",
-    description: "Nhẹ nhàng đánh thức vị giác",
-    value: 60000,
-  },
+  { title: "Món chính", description: "Nhẹ nhàng đánh thức vị giác" },
+  { title: "Món phụ", description: "Nhẹ nhàng đánh thức vị giác" },
+  { title: "Món tráng miệng", description: "Nhẹ nhàng đánh thức vị giác" },
 ];
 
 export function FeatureCategory() {
   return (
-    <section className="max-w-7xl mx-auto space-y-4 py-16 flex items-center gap-5 ">
-      <div className="space-y-4">
-        <p className="uppercase font-serif tracking-widest">
-          Mở ra một hành trình vị giác
-        </p>
-        <p className="text-2xl">Mỗi sở thích, một hương vị riêng.</p>
-        <p className="text-muted-foreground pb-3">
+    <Section className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <SectionHeader
+          className="mb-4"
+          eyebrow="Mở ra một hành tình vị giác"
+          title="Mỗi sở thích, một hương vị riêng"
+        ></SectionHeader>
+        <p className="mb-8 max-w-xl text-muted-foreground">
           Từ món nhẹ mở đầu đến dư vị ngọt lành, tìm một món hợp ý bạn và một
           món để cùng sẻ chia.
         </p>
-
-        <div className="flex flex-col ">
+        <ul className="border-t border-border">
           {items.map((item) => (
-            <div className="mb-5 " key={item.title}>
-              <div className="flex justify-between">
-                <div>
-                  <p>{item.title}</p>
-                  <p>{item.description}</p>
-                </div>
-                <div>
-                  <Button>
-                    Xem ngay <ArrowUp></ArrowUp>
-                  </Button>
-                </div>
+            <li
+              key={item.title}
+              className="flex items-center justify-between gap-4 border-b border-border py-5"
+            >
+              <div>
+                <p className="font-serif text-2xl text-foreground">
+                  {item.title}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  {item.description}
+                </p>
               </div>
-              <hr />
-            </div>
+              <Button variant="outline" className="h-9 shrink-0 px-4">
+                Xem ngay <ArrowUp />
+              </Button>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
-
       <img
-        className="aspect-4 w-full object-cover rounded-4xl"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS99iIJraz-oXnq9KfT51OJndwj9AnocSul7W7OToQvnVdR4bh5o2nrvvU&s=10"
-        alt=""
+        alt="Các món ăn tại nhà hàng Trường Thọ"
+        loading="lazy"
+        className="aspect-4/3 w-full rounded-lg object-cover"
       />
-    </section>
+    </Section>
   );
 }

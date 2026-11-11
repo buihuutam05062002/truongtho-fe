@@ -1,20 +1,17 @@
 import {MoveRight} from "lucide-react"
 import {Button} from "@/components/ui/button"
+import { Section } from "@/components/layout/section"
 export function AboutSection(){
     return (
-        <section className=" max-w-7xl mx-auto grid items-center lg:grid-cols-2 gap-10 px-6 py-16 lg:gap-16 lg:px-10 ">
-            <div className="">
-                <img src="https://res.cloudinary.com/hzjnf9ek/image/upload/v1792577839/nuocsuot_imlexk.webp" alt="" className="aspect-square w-full max-w-xl justify-self-center rounded-4xl object-fit  " />
+        <Section id="cau-chuyen" className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <img src="https://i.pinimg.com/736x/9f/b3/40/9fb3409fc9b241538bf53cc30a8115fc.jpg" alt="Món ăn tại nhà hàng Trường Thọ" loading="lazy" className="aspect-square w-full max-w-xl justify-self-center rounded-lg object-fill border border-border" />
+            <div className="max-w-xl space-y-5">
+                <p className="text-sx uppercase tracking-[0.2em] text-gold">Câu chuyện về Trường Thọ</p>
+                <h2 className="font-serif text-3xl text-foreground lg:text-5xl">Giữ Hồn Á Đông, gửi trao tâm ý</h2>
+                <p className="text-muted-foreground">Trường Thọ bắt đầu từ một niềm tin giản dị: bữa ăn ngon không chỉ ở hương vị, mà còn ở những người cùng ngồi quanh bàn.</p>
+                <p className="text-muted-foreground">Từ xửng dim sum nghi ngút đến món quay thơm lừng, chúng tôi gìn giữ nét tinh tế của ẩm thực Á Đông, kết hợp nguyên liệu theo mùa và sự hiếu khách chân thành.</p>
+                <Button variant="outline" className="h-10 px-4">Khám phá câu chuyện <MoveRight /></Button>
             </div>
-            <div className="max-w-xl space-y-4">
-                <p className="uppercase tracking-widest text-sm">Câu chuyện về trường thọ</p>
-                <h1 className="font-serif text-4xl">Giữ hồn Á Đông, gửi trao tâm ý</h1>
-                <p>Trường Thọ bắt đầu từ một niềm tin giản dị: bữa ăn ngon không chỉ ở hương vị, mà còn ở những người cùng ngồi quanh bàn.</p>
-                <p>Từ xửng dim sum nghi ngút đến món quay thơm lừng, chúng tôi gìn giữ nét tinh tế của ẩm thực Á Đông, kết hợp nguyên liệu theo mùa và sự hiếu khách chân thành.</p>
-                <div>
-                    <Button>Khám phá câu chuyên <MoveRight/></Button>
-                </div>
-            </div>
-        </section>
+        </Section>
     )
 }

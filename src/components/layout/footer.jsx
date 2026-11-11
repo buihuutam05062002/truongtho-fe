@@ -1,6 +1,6 @@
 export function Footer(){
     return (
-        <div className="bg-black">
+        <div id="lien-he" className="border-t border-border bg-card text-card-foreground  ">
                     <div className="mx-auto container">
             <div className="flex px-5 justify-between pt-24 align justify-items-center mb-10 ">
                 <img src="/logo.webp" alt="" className="hidden lg:block size-56 rounded-full" />
@@ -37,7 +37,7 @@ export function Footer(){
             <div>
                 <hr className="border " />
                 <div className="flex lg:grid-cols-[1.1fr_3fr] gap-5 justify-between  py-5 ">
-                    <select name="" id="" className="aria-label">
+                    <select name="" id="" aria-label="Ngôn ngữ" className="rounded-md border border-border bg-card px-2 py-1 text-sm">
                         <option value="">EN-US</option>
                         <option value="">VN</option>
                     </select>
