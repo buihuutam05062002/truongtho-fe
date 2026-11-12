@@ -18,7 +18,7 @@ export const ADMIN_NAV = [
   { label: "Đơn hàng", icon: ClipboardList },
   { label: "Đặt bàn", icon: CalendarCheck, to: "/admin/reservations" },
   { label: "Bàn", icon: Armchair, to: "/admin/tables" },
-  { label: "Thực đơn", icon: UtensilsCrossed },
+  { label: "Thực đơn", icon: UtensilsCrossed, to: "/admin/products" },
   { label: "Nhân sự & ca làm", icon: Users },
   { label: "Báo cáo", icon: ChartColumn },
 ]

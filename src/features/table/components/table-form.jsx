@@ -3,7 +3,6 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "@/components/ui/button"
 import { FormField } from "@/components/form/form-field"
 import { Input } from "@/components/ui/input"
-import { Panel } from "@/components/dashboard/panel"
 import { useCreateTable, useUpdateTable } from "../hook"
 import { diningTableSchema } from "../schemas"
 import { TABLE_STATUS_LABEL } from "../constants"
@@ -42,7 +41,7 @@ export default function TableForm({ initial, onDone }) {
     const pending = create.isPending || update.isPending
 
     return (
-        <Panel title={isEdit ? `Sửa ${initial.name}` : "Thêm bàn mới"}>
+        <>
             <form onSubmit={handleSubmit(onSubmit)} noValidate className="grid gap-4 sm:grid-cols-2">
                 <FormField id="name" label="Tên bàn" error={errors.name?.message}>
                     <Input
@@ -94,6 +93,6 @@ export default function TableForm({ initial, onDone }) {
                     </Button>
                 </div>
             </form>
-        </Panel>
+        </>
     )
 }

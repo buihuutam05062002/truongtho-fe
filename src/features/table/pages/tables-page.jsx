@@ -6,6 +6,8 @@ import { Panel } from "@/components/dashboard/panel"
 import { KpiCard } from "@/components/dashboard/kpi-card"
 import { DataTable } from "@/components/dashboard/data-table"
 import { StatusBadge } from "@/components/dashboard/status-badge"
+import { Dialog, DialogContent } from "@/components/ui/dialog"
+import { ConfirmDialog } from "@/components/dashboard/confirm-dialog"
 import TableForm from "../components/table-form"
 import { useDeleteTable, useTables } from "../hook"
 import { TABLE_STATUS_LABEL, TABLE_STATUS_TONE } from "../constants"
@@ -13,6 +15,7 @@ import { TABLE_STATUS_LABEL, TABLE_STATUS_TONE } from "../constants"
 export default function TablesPage() {
     const { data, isLoading, isError, error } = useTables()
     const [editing, setEditing] = useState(null)
+    const [deleting, setDeleting] = useState(null)
     const remove = useDeleteTable()
 
     const tables = Array.isArray(data) ? data : []
@@ -43,10 +46,7 @@ export default function TablesPage() {
                     <Button
                         size="sm"
                         variant="destructive"
-                        disabled={remove.isPending}
-                        onClick={() => {
-                            if (window.confirm(`Xóa ${t.name}?`)) remove.mutate(t.id)
-                        }}
+                        onClick={() => setDeleting(t)}
                     >
                         Xóa
                     </Button>
@@ -79,13 +79,26 @@ export default function TablesPage() {
                 </div>
             )}
 
-            {editing && (
-                <TableForm
-                    key={editing.id ?? "new"}
-                    initial={editing}
-                    onDone={() => setEditing(null)}
-                />
-            )}
+            <Dialog open={!!editing} onOpenChange={(o) => !o && setEditing(null)}>
+                <DialogContent title={editing?.id ? `Sửa ${editing.name}` : "Thêm bàn mới"}>
+                    {editing && (
+                        <TableForm
+                            key={editing.id ?? "new"}
+                            initial={editing}
+                            onDone={() => setEditing(null)}
+                        />
+                    )}
+                </DialogContent>
+            </Dialog>
+
+            <ConfirmDialog
+                open={!!deleting}
+                title={`Xóa ${deleting?.name ?? "bàn"}?`}
+                description="Thao tác này không thể hoàn tác."
+                pending={remove.isPending}
+                onCancel={() => setDeleting(null)}
+                onConfirm={() => remove.mutate(deleting.id, { onSettled: () => setDeleting(null) })}
+            />
 
             <Panel title="Danh sách bàn">
                 {isLoading && (
