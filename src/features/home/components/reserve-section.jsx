@@ -4,10 +4,12 @@ import { Section } from "@/components/layout/section"
 import { useNavigate } from "react-router-dom"
 import {MoveUpRight} from "lucide-react"
 import { Button } from "@base-ui/react/button"
+import { Eyebrow } from "@/components/layout/eyebrow"
 const TIMES = [
   "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00",
   "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00",
 ]
+
 
 const GUESTS = Array.from({ length: 8 }, (_, i) => i + 1)
 
@@ -34,17 +36,14 @@ export function ReserveSection(){
     function handleSubmit(e){
         e.preventDefault()
         const params = new URLSearchParams({date,time,guests: String(guests)})
-        navigate(`/dat-ban?${params}`)
+        navigate(`/reserve?${params}`)
     }
 
     return (
         <Section className="pt-0 lg:pt-0">
             <div className="grid overflow-hidden bg-secondary lg:grid-cols-[1fr_420px]">
                 <div className="space-y-6 p-8 lg:p-14">
-                    <div className="flex items-center gap-3">
-                        <span className="h-px w-6 bg-rose"></span>
-                        <p className="text-[10px] font-medium uppercase tracking-[0.15em] text-gold">Hẹn bạn tại Trường Thọ</p>
-                    </div>
+                    <Eyebrow>Hẹn bạn tại Trường Thọ</Eyebrow>
                     <h2 className="font-serif text-4xl leading-[1.3] text-foreground lg:text-[44px]">
                         Giữ một chỗ ngồi, 
                         <br />

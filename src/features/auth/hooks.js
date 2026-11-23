@@ -4,6 +4,7 @@ import { authApi } from "./api"
 import { tokenStore } from "@/lib/token"
 import { refreshSession } from "@/lib/axios"
 import {ERR} from "@/lib/errorCodes"
+import { homePathFor } from "@/lib/home-path"
 import toast from "react-hot-toast"
 
 export const authKeys = { me: ['auth', 'me'] }
@@ -19,12 +20,22 @@ export const useRegister= () =>{
             tokenStore.set(res.token)
             qc.setQueryData(authKeys.me,res.user)
             toast.success("tạo tài khoản thành công")
-            navigate(location.state?.from?.pathname ?? '/home', {replace: true})
+            navigate(location.state?.from?.pathname ?? homePathFor(res.user), {replace: true})
         },
     })
 }
 
 
+
+export const useChangePassword = () => {
+    return useMutation({
+        mutationFn: authApi.changePassword,
+        onSuccess: (res) => {
+            tokenStore.set(res.token)
+            toast.success("Đã đổi mật khẩu")
+        },
+    })
+}
 
 export const useLogout = () =>{
     const qc = useQueryClient()
@@ -70,7 +81,7 @@ export const useLogin = () =>{
             toast.success("Đăng nhập thành công")
             tokenStore.set(res.token)
             qc.setQueryData(authKeys.me, res.user)
-            navigate(location.state?.from?.pathname ?? '/home', { replace: true })
+            navigate(location.state?.from?.pathname ?? homePathFor(res.user), { replace: true })
         },
     })
 }

@@ -1,6 +1,14 @@
 import { cn } from "@/lib/utils"
 
-export function DataTable({ columns, rows, getRowKey, empty = "Chưa có dữ liệu", className }) {
+export function DataTable({
+  columns,
+  rows,
+  getRowKey,
+  empty = "Chưa có dữ liệu",
+  className,
+  onRowClick,
+  isRowActive,
+}) {
   return (
     <div className={cn("overflow-x-auto", className)}>
       <table className="w-full text-left text-xs">
@@ -33,7 +41,27 @@ export function DataTable({ columns, rows, getRowKey, empty = "Chưa có dữ li
             </tr>
           ) : (
             rows.map((row) => (
-              <tr key={getRowKey(row)} className="border-b border-border last:border-b-0">
+              <tr
+                key={getRowKey(row)}
+                className={cn(
+                  "border-b border-border last:border-b-0",
+                  onRowClick && "cursor-pointer outline-none hover:bg-secondary focus-visible:bg-secondary",
+                  isRowActive?.(row) && "bg-accent hover:bg-accent"
+                )}
+                aria-current={isRowActive?.(row) ? "true" : undefined}
+                tabIndex={onRowClick ? 0 : undefined}
+                onClick={onRowClick ? () => onRowClick(row) : undefined}
+                onKeyDown={
+                  onRowClick
+                    ? (e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault()
+                          onRowClick(row)
+                        }
+                      }
+                    : undefined
+                }
+              >
                 {columns.map((col) => (
                   <td
                     key={col.key}

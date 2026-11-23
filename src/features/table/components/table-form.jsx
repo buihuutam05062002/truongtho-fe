@@ -10,7 +10,7 @@ import { TABLE_STATUS_LABEL } from "../constants"
 const selectClass =
     "h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm outline-none transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 dark:bg-input/30"
 
-// "" -> undefined để field position (optional) không bị NaN
+
 const toNumber = (v) => (v === "" || v == null ? undefined : Number(v))
 
 export default function TableForm({ initial, onDone }) {

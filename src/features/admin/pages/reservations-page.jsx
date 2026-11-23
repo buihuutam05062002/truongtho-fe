@@ -6,10 +6,12 @@ import { Panel } from "@/components/dashboard/panel"
 import { DataTable } from "@/components/dashboard/data-table"
 import { StatusBadge } from "@/components/dashboard/status-badge"
 import { Pagination } from "@/components/dashboard/pagination"
+import { useNavigate } from "react-router-dom"
 import { NEXT_ACTIONS, STATUS_LABEL, STATUS_TONE } from "@/features/reservation/constants"
 import { useReservations, useUpdateReservationStatus } from "@/features/reservation/hooks"
-
+import { SeatTableDialog } from "@/features/reservation/components/seat-table-dialog"
 export default function ReservationsPage() {
+  const navigate = useNavigate()
   const [page, setPage] = useState(0)
   const { data, isLoading, isError, error } = useReservations({
     page,
@@ -17,7 +19,7 @@ export default function ReservationsPage() {
     sort: "createdAt,desc",
   })
   const updateStatus = useUpdateReservationStatus()
-
+  const [seating, setSeating] = useState(null)
   const columns = [
     { key: "reservationCode", header: "Mã", className: "font-medium" },
     { key: "contactName", header: "Họ và tên" },
@@ -28,6 +30,7 @@ export default function ReservationsPage() {
       cell: (r) => dayjs(r.reservationTime).format("HH:mm · DD/MM/YYYY"),
     },
     { key: "partySize", header: "Số khách", align: "right" },
+    { key: "tableName", header: "Bàn", cell: (r) => r.tableName ?? "—" },
     {
       key: "reservationStatus",
       header: "Trạng thái",
@@ -48,7 +51,11 @@ export default function ReservationsPage() {
               size="sm"
               variant={a.status === "CANCELLED" ? "outline" : "default"}
               disabled={updateStatus.isPending}
-              onClick={() => updateStatus.mutate({ id: r.id, status: a.status })}
+              onClick={() =>
+                a.status === "ARRIVED"
+                ? setSeating(r)
+                : updateStatus.mutate({ id: r.id, status: a.status })
+}
             >
               {a.label}
             </Button>
@@ -63,6 +70,8 @@ export default function ReservationsPage() {
       <PageHeader
         title="Đặt bàn"
         description="Theo dõi và xác nhận các yêu cầu đặt bàn của khách"
+        actions={<Button onClick={() => navigate("/admin/reservations/new")}>Tạo đặt bàn</Button>}
+
       />
 
       <Panel
@@ -98,6 +107,21 @@ export default function ReservationsPage() {
           </>
         )}
       </Panel>
+      {seating && (
+        <SeatTableDialog
+          key={seating.id}
+          reservation={seating}
+          pending={updateStatus.isPending}
+          onClose={() => setSeating(null)}
+          onConfirm={(tableId) =>
+            updateStatus.mutate(
+              { id: seating.id, status: "ARRIVED", tableId },
+              { onSuccess: () => setSeating(null) }
+            )
+          }
+        />
+      )}
+
     </main>
   )
 }

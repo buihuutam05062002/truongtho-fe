@@ -1,5 +1,7 @@
+import { useState } from "react"
 import { NavLink } from "react-router-dom"
-import { LogOut, ShieldCheck } from "lucide-react"
+import { KeyRound, LogOut, ShieldCheck } from "lucide-react"
+import ChangePasswordDialog from "@/features/auth/components/change-password-dialog"
 import { cn } from "@/lib/utils"
 import { ADMIN_NAV, STAFF_NAV, UTILITY_NAV } from "../nav"
 
@@ -24,6 +26,7 @@ function NavItem({ item, onNavigate }) {
   return (
     <NavLink
       to={item.to}
+      end={item.end}
       onClick={onNavigate}
       className={({ isActive }) =>
         cn(
@@ -43,6 +46,7 @@ function NavItem({ item, onNavigate }) {
 
 
 export function AdminSidebar({ user, isAdmin, onNavigate, onLogout, className }) {
+  const [changingPassword, setChangingPassword] = useState(false)
   const nav = isAdmin ? ADMIN_NAV : STAFF_NAV
   const name = user?.fullName ?? user?.name ?? user?.email ?? "Tài khoản"
   const initials = name
@@ -111,6 +115,15 @@ export function AdminSidebar({ user, isAdmin, onNavigate, onLogout, className })
         </div>
         <button
           type="button"
+          onClick={() => setChangingPassword(true)}
+          aria-label="Đổi mật khẩu"
+          title="Đổi mật khẩu"
+          className="text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <KeyRound className="size-[15px]" />
+        </button>
+        <button
+          type="button"
           onClick={onLogout}
           aria-label="Đăng xuất"
           className="text-muted-foreground transition-colors hover:text-foreground"
@@ -118,6 +131,7 @@ export function AdminSidebar({ user, isAdmin, onNavigate, onLogout, className })
           <LogOut className="size-[15px]" />
         </button>
       </div>
+    <ChangePasswordDialog open={changingPassword} onClose={() => setChangingPassword(false)} />
     </aside>
   )
 }

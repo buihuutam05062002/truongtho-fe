@@ -1,25 +1,25 @@
 import { DishCard } from "./dish-card"
 import { Button } from "@/components/ui/button"
 import { Section, SectionHeader } from "@/components/layout/section"
-
+import { Link } from "react-router-dom"
 
 const items = [
     {
-        imgUrl: "https://bizweb.dktcdn.net/100/426/047/articles/33-967f1e3e-ba0c-4166-bf6f-4835ad75f4bd.jpg",
-        title: "Cá kho tộ",
-        description: "Ngon từ trong miệng, ngọt từ trong xương",
+        imgUrl: "https://i.pinimg.com/1200x/ad/87/35/ad87351a060599ee49fd5883c4162c50.jpg",
+        title: "Cơm tấm",
+        description: "Ngon từ trong miệng, ngọt từ trong thịt",
         value: 80000
     },
         {
-        imgUrl: "https://cdn.tgdd.vn/2025/01/CookRecipe/GalleryStep/thanh-pham-27.jpg",
-        title: "Thịt kho tàu",
-        description: "Ngon từ trong miệng, ngọt từ trong xương",
+        imgUrl: "https://i.pinimg.com/736x/d6/42/6f/d6426f32746388dd8c15e7fa37f02b0c.jpg",
+        title: "Bánh xèo",
+        description: "Vỏ bánh giòn, nước chấm đậm vị",
         value: 80000
     },
         {
-        imgUrl: "https://www.hoidaubepaau.com/wp-content/uploads/2018/04/mon-canh-cua-rau-day.jpg",
-        title: "Canh cua rau đay",
-        description: "Ngon từ trong miệng, ngọt từ trong xương",
+        imgUrl: "https://i.pinimg.com/736x/83/3f/52/833f52b716010b0cc8aec7e045002d3c.jpg",
+        title: "Gỏi cuốn",
+        description: "Da bánh mềm mại, hương liệu lan tỏa",
         value: 80000
     }
     
@@ -28,11 +28,13 @@ const items = [
 
 export function FeatureMenu() {
   return (
-    <Section id="thuc-don">
+    <Section id="menu">
       <SectionHeader
         eyebrow="Tinh túy từ gian bếp"
         title="Những hương vị làm nên nhớ thương"
-        action={<Button variant="outline">Xem toàn bộ thực đơn</Button>}
+        action={
+        <Link to="/menu"><Button variant="outline">Xem toàn bộ thực đơn</Button></Link>
+       }
       />
       <div className="grid gap-6 md:grid-cols-3">
         {items.map((item) => (

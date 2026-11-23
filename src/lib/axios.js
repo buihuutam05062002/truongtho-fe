@@ -14,7 +14,7 @@ const SKIP_REFRESH = ['/auth/login', '/auth/register', '/auth/refresh', '/auth/l
 let refreshing = null
 export function refreshSession() {
       refreshing ??= raw.post('/auth/refresh')
-    .then(({ data }) => { tokenStore.set(data.token); return data }) // data = { token, user }
+    .then(({ data }) => { tokenStore.set(data.token); return data })
     .catch((e) => { tokenStore.clear(); throw e })
     .finally(() => { refreshing = null })
   return refreshing

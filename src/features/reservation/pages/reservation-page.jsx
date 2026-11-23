@@ -10,6 +10,9 @@ import { Textarea } from "@/components/ui/textarea"
 import { useState } from "react"
 import { applyServerErrors } from "@/lib/form"
 import {STATUS_LABEL} from "../constants"
+import { Link } from "react-router-dom"
+import { useMe } from "@/features/auth/hooks"
+import { isStaffUser } from "@/lib/home-path"
 
 const toPayload = (values) =>({
     contactName: values.contactName,
@@ -20,7 +23,9 @@ const toPayload = (values) =>({
 })
 
 export default function ReservationPage() {
+
     const [created, setCreated] = useState(null)
+    const { data: me } = useMe()
     const {register, handleSubmit,setError,reset,formState: {errors}} = useForm({resolver: zodResolver(reservationSchema),
         defaultValues: {contactName:"", contactPhone:"",reservationTime:"",note:"",partySize:2}
     })
@@ -29,7 +34,6 @@ export default function ReservationPage() {
         onSuccess: (res) =>setCreated(res),
         onError: (err) => applyServerErrors(err,setError)
     })
-        // const onSubmit = (values) => console.log(values);
     const bookAnother = () =>{
         reset(),
         reservation.reset,
@@ -54,7 +58,12 @@ export default function ReservationPage() {
                     <p>Trạng thái: <strong>{STATUS_LABEL[created.reservationStatus] ?? created.reservationStatus}</strong></p>
                 </div>
 
-                   <Button type="button" onClick={bookAnother}>Đặt thêm bàn</Button>
+                   <div className="flex flex-wrap gap-2">
+                       <Button type="button" onClick={bookAnother}>Đặt thêm bàn</Button>
+                       {!isStaffUser(me) && (
+                           <Button variant="outline" nativeButton={false} render={<Link to="/my-reservations" />}>Xem đặt bàn của tôi</Button>
+                       )}
+                   </div>
             </main>
         )
     }

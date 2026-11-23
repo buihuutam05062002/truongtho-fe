@@ -13,11 +13,12 @@ export default  function HomePage() {
         <main>
             <HeroSection></HeroSection>
             <Features></Features>
+            
             <AboutSection></AboutSection>
             <FeatureMenu></FeatureMenu>
             <FeatureCategory></FeatureCategory>
             <DiningAtmosphere></DiningAtmosphere>
-            <PrivateDining></PrivateDining>
+            <PrivateDining src="https://i.pinimg.com/1200x/6e/bc/b2/6ebcb2f55804b8a0a7c67abbcda43055.jpg"></PrivateDining>
             <FeatureFeedBack></FeatureFeedBack>
             <ReserveSection></ReserveSection>
         </main>

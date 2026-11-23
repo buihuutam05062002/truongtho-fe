@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils"
 
 export function Panel({ title, description, action, children, className }) {
   return (
-    <section className={cn("rounded-md border border-border bg-card p-5", className)}>
+    <section className={cn("rounded-xl border border-border bg-card p-5", className)}>
       {(title || action) && (
         <header className="mb-4 flex items-start justify-between gap-4">
           <div className="space-y-1.5">

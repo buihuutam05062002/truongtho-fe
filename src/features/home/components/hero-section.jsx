@@ -31,7 +31,7 @@ export default function HeroSection() {
               <Button
                 className="h-11 px-5 text-sm"
                 nativeButton={false}
-                render={<Link to="/dat-ban" />}
+                render={<Link to="/reserve" />}
               >
                 Đặt bàn ngay <MoveUpRight />
               </Button>
@@ -39,7 +39,7 @@ export default function HeroSection() {
                 variant="outline"
                 className="h-11 border-white/40 bg-transparent px-5 text-sm text-white hover:bg-white/10 hover:text-white dark:bg-transparent dark:hover:bg-white/10"
                 nativeButton={false}
-                render={<Link to="/home#thuc-don" />}
+                render={<Link to="/home#menu" />}
               >
                 Xem thực đơn <MoveRight />
               </Button>

@@ -1,34 +1,33 @@
 import {
   Armchair,
   CalendarCheck,
-  CalendarDays,
   ChartColumn,
   CircleHelp,
   ClipboardList,
   LayoutGrid,
-  ListChecks,
   Settings,
   UtensilsCrossed,
   Users,
+  ConciergeBell,
 } from "lucide-react"
 
 
 export const ADMIN_NAV = [
-  { label: "Tổng quan", icon: LayoutGrid },
-  { label: "Đơn hàng", icon: ClipboardList },
-  { label: "Đặt bàn", icon: CalendarCheck, to: "/admin/reservations" },
-  { label: "Bàn", icon: Armchair, to: "/admin/tables" },
+  { label: "Tổng quan", icon: LayoutGrid, to: "/admin", end: true },
+  { label: "Đơn hàng", icon: ClipboardList, to: "/admin/orders" },
+  { label: "Bàn & đặt chỗ", icon: Armchair, to: "/admin/tables" },
   { label: "Thực đơn", icon: UtensilsCrossed, to: "/admin/products" },
-  { label: "Nhân sự & ca làm", icon: Users },
-  { label: "Báo cáo", icon: ChartColumn },
+   {label: "Gọi món", icon: ConciergeBell, to: "/admin/order"},
+  
+  { label: "Nhân sự", icon: Users, to: "/admin/employees" },
+  { label: "Báo cáo", icon: ChartColumn, to: "/admin/reports" },
 ]
 
 export const STAFF_NAV = [
-  { label: "Bàn của tôi", icon: Armchair },
-  { label: "Đơn đang phục vụ", icon: ClipboardList },
+  {label: "Gọi món", icon: ConciergeBell, to: "/admin/order"},
+  { label: "Bàn của tôi", icon: Armchair, to: "/admin/my-tables" },
+  { label: "Đơn đang phục vụ", icon: ClipboardList,to: "/admin/orders" },
   { label: "Lịch đặt bàn", icon: CalendarCheck, to: "/admin/reservations" },
-  { label: "Công việc trong ca", icon: ListChecks },
-  { label: "Lịch làm việc", icon: CalendarDays },
 ]
 
 

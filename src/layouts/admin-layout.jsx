@@ -6,6 +6,7 @@ import { Bell, Menu } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/layout/theme-toggle"
+import { SyncStatus } from "@/components/layout/sync-status"
 import { AdminSidebar } from "@/features/admin/components/admin-sidebar"
 import { ADMIN_NAV, STAFF_NAV } from "@/features/admin/nav"
 import { useLogout, useMe } from "@/features/auth/hooks"
@@ -68,7 +69,8 @@ export default function AdminLayout() {
             </nav>
           </div>
 
-          <div className="flex items-center gap-3 text-xs text-muted-foreground">
+          <div className="flex items-center gap-3 text-xs text-muted-foreground lg:gap-[22px]">
+            <SyncStatus />
             <span className="hidden sm:inline">{today}</span>
             <ThemeToggle />
             <Button variant="ghost" size="icon" aria-label="Thông báo">
