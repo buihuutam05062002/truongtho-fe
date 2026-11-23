@@ -6,4 +6,5 @@ export const authApi = {
     me: () => api.get('/auth/me'),
     changePassword: (body) => api.post('/auth/change-password', body),
     logout: () => api.post('/auth/logout'),
+    oauth2: (provider, credential) => api.post(`/auth/oauth2/${provider}`, { credential }),
 }

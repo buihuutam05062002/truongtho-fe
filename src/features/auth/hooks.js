@@ -86,3 +86,17 @@ export const useLogin = () =>{
     })
 }
 
+export const useOAuthLogin = () => {
+    const qc = useQueryClient()
+    const navigate = useNavigate()
+    const location = useLocation()
+    return useMutation({
+        mutationFn: (credential) => authApi.oauth2('google', credential),
+        onSuccess: (res) => {
+            toast.success("Đăng nhập thành công")
+            tokenStore.set(res.token)
+            qc.setQueryData(authKeys.me, res.user)
+            navigate(location.state?.from?.pathname ?? homePathFor(res.user), { replace: true })
+        },
+    })
+}

@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { registerSchema } from "../schemas"
 import { useRegister } from "../hooks"
 import { applyServerErrors } from "@/lib/form"
+import { GoogleLoginButton } from "../components/google-login-button"
 
 
 export default function RegisterPage(){
@@ -52,7 +53,7 @@ export default function RegisterPage(){
 
 
 
-        <Button type="button" className="p-5 bg-red-700 w-full">GOOGLE</Button>
+        <GoogleLoginButton />
 
         <p className="text-sm text-muted-foreground">
             Đã có tài khoản?{" "}

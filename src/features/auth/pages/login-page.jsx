@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "../schemas";
 import { useLogin } from "../hooks";
 import { applyServerErrors } from "@/lib/form";
-
+import { GoogleLoginButton } from "../components/google-login-button"
 export default function LoginPage() {
   const {
     register,
@@ -71,7 +71,7 @@ export default function LoginPage() {
       </form>
 
 
-      <Button className="p-5 bg-red-700 w-full  ">GOOGLE</Button>
+      <GoogleLoginButton />
     </>
   );
 }

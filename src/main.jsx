@@ -8,13 +8,17 @@ import { Toaster } from 'react-hot-toast'
 import { ErrorBoundary } from "react-error-boundary";
 import { logError } from './lib/logError'
 import ErrorFallback from './components/feedback/error-fallback'
-
+import { GoogleOAuthProvider } from '@react-oauth/google'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ErrorBoundary FallbackComponent={ErrorFallback} onError={logError}>
-      <QueryClientProvider client={queryClient}>
-        <App />
-      </QueryClientProvider>
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+        <QueryClientProvider client={queryClient}>
+          <App />
+        </QueryClientProvider>
+      </GoogleOAuthProvider>
+
+
    
     </ErrorBoundary>
 
