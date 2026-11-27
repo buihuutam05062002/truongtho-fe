@@ -27,7 +27,7 @@ export function StoryCta(){
                         >
                             Đặt bàn ngay <MoveUpRight />
                         </Button>
-                        <ArrowLink to="/home#menu">Xem thực đơn</ArrowLink>
+                        <ArrowLink to="/menu">Xem thực đơn</ArrowLink>
                     </div>
                 </div>
                 <img src={CTA_IMG} alt="" loading="lazy" className="h-56 w-full object-cover lg:h-full" />

@@ -19,7 +19,10 @@ export const useCreateEmployee = () => {
     const qc = useQueryClient()
     return useMutation({
         mutationFn: employeeApi.create,
-        onSuccess: () => qc.invalidateQueries({ queryKey: ["employees"] }),
+        onSuccess: () => {
+            qc.invalidateQueries({ queryKey: ["employees"] })
+            qc.invalidateQueries({ queryKey: ["users"] })
+        },
         onError: (err) => toast.error(err.message),
     })
 }

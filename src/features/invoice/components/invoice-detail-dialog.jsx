@@ -1,6 +1,7 @@
 import { useState } from "react"
 import dayjs from "dayjs"
 import { useQueryClient } from "@tanstack/react-query"
+import toast from "react-hot-toast"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { ConfirmDialog } from "@/components/dashboard/confirm-dialog"
@@ -16,6 +17,7 @@ import {
     usePayCash,
     useRemoveVoucher,
 } from "../hooks"
+import { usePaymentStream } from "../use-payment-stream"
 import { VoucherBox } from "./voucher-box"
 
 const detailColumns = [
@@ -30,9 +32,7 @@ export function InvoiceDetailDialog({ invoiceId, onClose }) {
     const [qrUrl, setQrUrl] = useState(null)
     const [confirmCancel, setConfirmCancel] = useState(false)
 
-    const { data: invoice, isLoading, isError, error } = useInvoice(invoiceId, {
-        refetchInterval: qrUrl ? 3000 : false,
-    })
+    const { data: invoice, isLoading, isError, error } = useInvoice(invoiceId)
     const payCash = usePayCash()
     const createQr = useCreateQr()
     const cancel = useCancelInvoice()
@@ -40,6 +40,23 @@ export function InvoiceDetailDialog({ invoiceId, onClose }) {
     const removeVoucher = useRemoveVoucher()
 
     const isPending = invoice?.invoiceStatus === "PENDING"
+
+    // The server pushes the result as soon as the SePay webhook confirms the transfer (no polling).
+    usePaymentStream(invoiceId, !!qrUrl && isPending, ({ name, data }) => {
+        if (name !== "status") return
+        let status
+        try {
+            status = JSON.parse(data).status
+        } catch {
+            return
+        }
+        if (status === "PENDING") return
+        setQrUrl(null)
+        for (const key of ["invoice", "invoices", "tables", "dashboard"]) {
+            qc.invalidateQueries({ queryKey: [key] })
+        }
+        if (status === "PAID") toast.success("Đã nhận thanh toán chuyển khoản")
+    })
     const canPay = isPending && Number(invoice?.totalAmount) > 0
     const busy =
         payCash.isPending ||

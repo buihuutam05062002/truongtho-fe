@@ -43,7 +43,7 @@ export default function StoryPage() {
           </>
         }
         paragraphs={BELIEF_PARAGRAPHS}
-        action={<ArrowLink to="/home#menu">Xem thực đơn</ArrowLink>}
+        action={<ArrowLink to="/menu">Xem thực đơn</ArrowLink>}
       />
       <StoryValues></StoryValues>
       <StoryJourney></StoryJourney>

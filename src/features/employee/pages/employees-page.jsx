@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Plus, Search } from "lucide-react"
+import toast from "react-hot-toast"
 import { cn } from "@/lib/utils"
 import { useDebouncedValue } from "@/lib/use-debounced-value"
 import { Button } from "@/components/ui/button"
@@ -220,9 +221,13 @@ export default function EmployeesPage() {
                     className="max-w-md"
                 >
                     <EmployeeForm
-                        onCreated={({ employee, tempPassword }) => {
+                        onCreated={({ employee, tempPassword, promoted }) => {
                             setCreating(false)
                             setSelection(employee)
+                            if (promoted) {
+                                toast.success(`${employee.fullName || employee.email} đã được nâng lên nhân viên. Họ cần đăng nhập lại.`)
+                                return
+                            }
                             setCredential({
                                 title: "Đã tạo nhân viên",
                                 description: `Tài khoản của ${employee.fullName} đã sẵn sàng.`,

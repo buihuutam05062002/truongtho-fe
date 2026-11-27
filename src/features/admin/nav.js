@@ -8,6 +8,7 @@ import {
   Settings,
   UtensilsCrossed,
   Users,
+  UserCog,
   ConciergeBell,
 } from "lucide-react"
 
@@ -20,6 +21,7 @@ export const ADMIN_NAV = [
    {label: "Gọi món", icon: ConciergeBell, to: "/admin/order"},
   
   { label: "Nhân sự", icon: Users, to: "/admin/employees" },
+  { label: "Người dùng", icon: UserCog, to: "/admin/users" },
   { label: "Báo cáo", icon: ChartColumn, to: "/admin/reports" },
 ]
 

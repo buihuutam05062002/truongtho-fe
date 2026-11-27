@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowUp } from "lucide-react";
 import { Section, SectionHeader } from "@/components/layout/section";
+import { Link } from "react-router-dom";
 const items = [
   { title: "Món chính", description: "Nhẹ nhàng đánh thức vị giác" },
   { title: "Món phụ", description: "Nhẹ nhàng đánh thức vị giác" },
@@ -35,7 +36,7 @@ export function FeatureCategory() {
                 </p>
               </div>
               <Button variant="outline" className="h-9 shrink-0 px-4">
-                Xem ngay <ArrowUp />
+                 <Link to="/menu">Xem ngay</Link>       <ArrowUp />
               </Button>
             </li>
           ))}

@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
 import { Eyebrow } from "@/components/layout/eyebrow"
+import { Link } from "react-router-dom"
 export const slides = [
   {
     label: "Sảnh đón khách",
@@ -58,7 +59,7 @@ export function DiningAtmosphere(){
                     <p className="text-sm leading-[1.85] text-muted-foreground">
                         Ánh đèn ấm, sắc gỗ trầm và những đường nét Á Đông. Mọi chi tiết đều dành chỗ cho sự thư thái của bạn.
                     </p>
-                    <button type="button" className="inline-flex items-center gap-4 border-b border-border pb-2 text-[13px] text-foreground transition-colors hover:border-gold">Dạo một vòng không gian <ArrowRight/></button>
+                   <Link to="/space"> <button type="button" className="inline-flex items-center gap-4 border-b border-border pb-2 text-[13px] text-foreground transition-colors hover:border-gold cursor-grab">Dạo một vòng không gian <ArrowRight/></button></Link> 
                 </div>
             </div>
 

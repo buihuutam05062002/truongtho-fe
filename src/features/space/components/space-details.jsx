@@ -1,6 +1,5 @@
 import { Eyebrow } from "@/components/layout/eyebrow"
 import { Section } from "@/components/layout/section"
-import { slides } from "@/features/home/components/dining-atmosphere"
 
 
 const details = [

@@ -22,7 +22,7 @@ export function AboutSection({
       variant="outline"
       className="h-10 px-4"
       nativeButton={false}
-      render={<Link to="/story" />}
+      render={<Link to="/story#belief" />}
     >
       Khám phá câu chuyện <MoveRight />
     </Button>

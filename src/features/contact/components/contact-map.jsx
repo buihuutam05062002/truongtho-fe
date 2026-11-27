@@ -16,18 +16,6 @@ export function ContactMap() {
           className="size-full border-0"
         />
 
-        <div className="absolute inset-x-4 bottom-4 max-w-[340px] space-y-3 border border-border bg-background p-6 sm:inset-x-auto sm:bottom-8 sm:left-8">
-          <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-gold">Nhà hàng Trường Thọ</p>
-          <p className="font-serif text-[17px] leading-6 text-foreground">{address}</p>
-          <a
-            href={`https://www.google.com/maps/search/?api=1&query=${query}`}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-block border-b border-border pb-1 text-[13px] text-foreground transition-colors hover:border-gold"
-          >
-            Chỉ đường
-          </a>
-        </div>
       </div>
     </Section>
   )

@@ -164,7 +164,10 @@ export default function EmployeeForm({ employee, onCreated, onCancel, onResetPas
                 <Notice>Trạng thái này sẽ khóa tài khoản, nhân viên không thể đăng nhập cho đến khi được chuyển lại.</Notice>
             )}
             {!isEdit && (
-                <Notice>Hệ thống tạo mật khẩu tạm thời và chỉ hiển thị một lần sau khi tạo nhân viên.</Notice>
+                <Notice>
+                    Email mới: hệ thống tạo mật khẩu tạm thời và chỉ hiển thị một lần. Email đã là khách hàng: tài khoản đó
+                    được nâng lên nhân viên, giữ nguyên mật khẩu và điểm thành viên.
+                </Notice>
             )}
 
             <div className="flex flex-wrap items-center gap-2.5">

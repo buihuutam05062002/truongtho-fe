@@ -68,6 +68,12 @@ export const router = createBrowserRouter([
                     {path: "tables", lazy: page(() => import("@/features/floor/pages/floor-page")) },
                     {path: "products", lazy: page(() => import("@/features/product/pages/products-page"))},
                     {path: "employees", lazy: page(() => import("@/features/employee/pages/employees-page"))},
+                    {
+                        element: <ProtectedRoute roles={["ROLE_ADMIN"]} />,
+                        children: [
+                            {path: "users", lazy: page(() => import("@/features/user/pages/users-page"))},
+                        ],
+                    },
                     {path: "reports", lazy: page(() => import("@/features/report/pages/report-page"))}
                 ]
             

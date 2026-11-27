@@ -1,5 +1,4 @@
 import { SpaceHero } from "@/features/space/components/space-hero";
-import { SpaceHighlights } from "@/features/space/components/space-highlights";
 import { SpaceLobby } from "../components/space-lobby";
 import { SpacePrivateRoom } from "../components/space-private-room";
 import { SpaceDetails } from "@/features/space/components/space-details";
@@ -9,7 +8,7 @@ export default function SpacePage() {
   return (
     <main>
       <SpaceHero></SpaceHero>
-      <SpaceHighlights></SpaceHighlights>
+      
       <SpaceLobby></SpaceLobby>
       <SpacePrivateRoom></SpacePrivateRoom>
 

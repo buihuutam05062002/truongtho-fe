@@ -25,7 +25,7 @@ export function PrivateDining({ id = "space", imageClassName = "aspect-4/5", src
                 <li key={text} className="rounded-full border border-border px-4 py-1.5 text-sm text-muted-foreground ">{text}</li>
             ))}
         </ul>
-        <Button className="h-10 px-4" nativeButton={false} render={<Link to="/home#contact">Tư vấn tiệc &amp; phòng riêng <ArrowRight/></Link>} ></Button>
+        <Button className="h-10 px-4" nativeButton={false} render={<Link to="/contact">Tư vấn tiệc &amp; phòng riêng <ArrowRight/></Link>} ></Button>
       </div>
     </Section>
   );
