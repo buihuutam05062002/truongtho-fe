@@ -1,12 +1,27 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { QueryClientProvider } from '@tanstack/react-query'
+import { queryClient } from './lib/queryClient'
 import './index.css'
 import App from './App.jsx'
 import { Toaster } from 'react-hot-toast'
-
+import { ErrorBoundary } from "react-error-boundary";
+import { logError } from './lib/logError'
+import ErrorFallback from './components/feedback/error-fallback'
+import { GoogleOAuthProvider } from '@react-oauth/google'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <ErrorBoundary FallbackComponent={ErrorFallback} onError={logError}>
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+        <QueryClientProvider client={queryClient}>
+          <App />
+        </QueryClientProvider>
+      </GoogleOAuthProvider>
+
+
+   
+    </ErrorBoundary>
+
     <Toaster position='top-right' toastOptions={{style:{
       background: "var(--card)",
       color: "var(--card-foreground)",
