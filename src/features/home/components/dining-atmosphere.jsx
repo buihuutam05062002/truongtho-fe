@@ -8,7 +8,7 @@ import {
 import Autoplay from "embla-carousel-autoplay"
 import { Eyebrow } from "@/components/layout/eyebrow"
 import { Link } from "react-router-dom"
-export const slides = [
+const slides = [
   {
     label: "Sảnh đón khách",
     title: "Ấm cúng trong từng góc nhỏ",

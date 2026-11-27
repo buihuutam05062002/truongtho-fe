@@ -14,7 +14,7 @@ const useInvalidate = () => {
     return () => {
         qc.invalidateQueries({ queryKey: ["users"] })
         qc.invalidateQueries({ queryKey: ["employees"] })
-}
+}}
 
 export const useUpdateUserRoles = () => {
     const invalidate = useInvalidate()
