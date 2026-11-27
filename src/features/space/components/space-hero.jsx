@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react"
 import Autoplay from "embla-carousel-autoplay"
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 import { Eyebrow } from "@/components/layout/eyebrow"
-import { slides } from "@/features/home/components/dining-atmosphere"
+
 
 const pad = (n) => String(n).padStart(2,"0")
 
@@ -76,7 +76,7 @@ export function SpaceHero(){
                             </div>
                             <div className="pointer-events-auto flex shrink-0 items-center gap-5">
                                 <button type="button" onClick={() => api?.scrollPrev()} aria-label="Ảnh trước" className={navClass}><ArrowLeft className="size-3.5"/></button>
-                                <span className="text-[11px] text-[#f2e9dc]">{pad(index + 1)} / {pad(slides.length)}</span>
+                                <span className="text-[11px] text-[#f2e9dc]">{pad(index + 1)} / {pad(slidess.length)}</span>
                                 <button type="button" onClick={() => api?.scrollNext()} aria-label="Ảnh sau" className={navClass}><ArrowRight className="size-3.5"/></button>
                             </div>
                         </div>
