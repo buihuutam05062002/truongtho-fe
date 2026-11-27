@@ -13,8 +13,7 @@ const useInvalidate = () => {
     const qc = useQueryClient()
     return () => {
         qc.invalidateQueries({ queryKey: ["users"] })
-        qc.invalidateQueries({ queryKey: ["employees"] }) // staff role changes touch the employee list too
-    }
+        qc.invalidateQueries({ queryKey: ["employees"] })
 }
 
 export const useUpdateUserRoles = () => {

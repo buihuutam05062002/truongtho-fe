@@ -38,7 +38,7 @@ async function readStream(url, signal, onEvent) {
             let name = "message"
             const data = []
             for (const line of frame.split(/\r?\n/)) {
-                if (line.startsWith(":")) continue // heartbeat comment
+                if (line.startsWith(":")) continue 
                 if (line.startsWith("event:")) name = line.slice(6).trim()
                 else if (line.startsWith("data:")) data.push(line.slice(5).trimStart())
             }

@@ -41,7 +41,6 @@ export function InvoiceDetailDialog({ invoiceId, onClose }) {
 
     const isPending = invoice?.invoiceStatus === "PENDING"
 
-    // The server pushes the result as soon as the SePay webhook confirms the transfer (no polling).
     usePaymentStream(invoiceId, !!qrUrl && isPending, ({ name, data }) => {
         if (name !== "status") return
         let status
